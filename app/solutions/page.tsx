@@ -1,191 +1,36 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Section from "@/components/Section";
+import SolutionIcon, { type SolutionIconName } from "@/components/SolutionIcon";
 
 export const metadata: Metadata = {
-  title: "Solutions",
-  description:
-    "Explore Valeron’s work management solutions — Shutdown Suite modules and custom builds for approvals, compliance, readiness, and reporting.",
+  title: "Mining and Operational Software Solutions",
+  description: "Explore Valeron software for mining shutdowns, fleet pre-starts, contractor mobilisation, labour capture, tool tracking and custom workflows.",
+  alternates: { canonical: "/solutions" },
+  openGraph: { title: "Mining and Operational Software Solutions | Valeron", description: "Practical software for mining shutdowns, fleet management, workforce mobilisation, labour capture, tool tracking and custom workflows.", url: "/solutions" },
 };
 
-const solutions = [
-  {
-    title: "Approvals & Governance",
-    desc: "Replace email chains with structured approvals that are visible, auditable, and consistent.",
-    bullets: [
-      "Role-based approval stages",
-      "Comments, timestamps, and audit trail",
-      "Clear ownership and status visibility",
-      "Reduced rework and miscommunication",
-    ],
-  },
-  {
-    title: "Break-in Work Control",
-    desc: "Manage break-in work with the right checks, the right sign-offs, and real-time visibility.",
-    bullets: [
-      "Request → review → approve workflows",
-      "Coordinator / superintendent pathways",
-      "Priority & risk capture",
-      "Reporting-ready history of decisions",
-    ],
-  },
-  {
-    title: "Timesheets & Labour Capture",
-    desc: "Fast entry for crews and contractors, with clean exports and reporting-ready data.",
-    bullets: [
-      "Simple daily entry",
-      "Job / work order alignment",
-      "Export packs to Excel",
-      "Less admin, better visibility",
-    ],
-  },
-  {
-    title: "Readiness Dashboards",
-    desc: "A single source of truth for planning progress, readiness KPIs, and at-risk visibility.",
-    bullets: [
-      "KPI snapshots for leadership",
-      "At-risk items surfaced early",
-      "Progress tracking against targets",
-      "Configured to your readiness model",
-    ],
-  },
-  {
-    title: "Compliance & Reporting",
-    desc: "Capture evidence once and produce consistent reporting packs without spreadsheet drift.",
-    bullets: [
-      "Standardised reporting outputs",
-      "Evidence capture & audit-friendly records",
-      "Exportable packs for meetings",
-      "Clear, trusted data across teams",
-    ],
-  },
-  {
-    title: "Custom Builds",
-    desc: "If you can describe the workflow, we can build the solution — tailored to your site, roles, and systems.",
-    bullets: [
-      "Built around how work happens on site",
-      "Configured to your terminology and stages",
-      "Fast iteration with real user feedback",
-      "Designed for adoption (not complexity)",
-    ],
-  },
+const solutions: { title: string; product: string; description: string; href: string; icon: SolutionIconName }[] = [
+  { title: "Mining shutdown management", product: "Valeron Shutdown Suite", description: "Plan, control and report shutdown readiness, approvals and execution from one connected platform.", href: "/solutions/mining-shutdown-management", icon: "shutdown" },
+  { title: "Digital pre-start and fleet management", product: "Inspectz by Valeron", description: "Digitise pre-starts, defect actions, compliance records and fleet visibility.", href: "/solutions/digital-prestart-fleet-management", icon: "fleet" },
+  { title: "Contractor mobilisation", product: "Requestz by Valeron", description: "Coordinate workforce requests, vendor nominations, documentation, rates and mobilisation readiness.", href: "/solutions/contractor-mobilisation", icon: "workforce" },
+  { title: "Mining timesheet and labour capture", product: "Timesheetz by Valeron", description: "Capture labour against controlled work data and prepare clean, SAP-ready exports.", href: "/solutions/mining-timesheet-labour-capture", icon: "timesheet" },
+  { title: "Tool and equipment tracking", product: "Logz by Valeron", description: "Track tool ownership, location, condition, inspections and movement history.", href: "/solutions/tool-equipment-tracking", icon: "tools" },
+  { title: "Custom mining software", product: "Valeron Custom Builds", description: "Turn site-specific approvals, maintenance and reporting workflows into practical operational software.", href: "/solutions/custom-mining-software", icon: "custom" },
 ];
 
 export default function SolutionsPage() {
-  return (
-    <main className="bg-white text-gray-900">
-      {/* HERO */}
-      <Section className="pt-16 pb-12">
-        <p className="text-sm font-semibold tracking-wide text-gray-500">
-          SOLUTIONS
-        </p>
-
-        <h1 className="mt-4 text-5xl font-bold tracking-tight leading-tight">
-          Work management solutions that replace spreadsheets with a single source of truth.
-        </h1>
-
-        <p className="mt-6 max-w-3xl text-xl text-gray-600">
-          Valeron builds modern web applications for approvals, compliance, readiness tracking,
-          and reporting — configured to your site, roles, and workflows. Start with a module from
-          our Shutdown Suite, or commission a fully custom build.
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-4">
-          <a
-            href="/book-demo"
-            className="rounded-xl bg-gray-900 px-6 py-3 text-white font-medium hover:bg-gray-800 transition"
-          >
-            Book a demo
-          </a>
-
-          <a
-            href="/shutdown-suite"
-            className="rounded-xl border border-gray-300 px-6 py-3 font-medium hover:border-gray-400 transition"
-          >
-            Explore Shutdown Suite
-          </a>
-        </div>
-      </Section>
-
-      {/* SOLUTIONS GRID */}
-      <Section className="pb-14">
-        <div className="grid gap-6 lg:grid-cols-2">
-          {solutions.map((s) => (
-            <div
-              key={s.title}
-              className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm"
-            >
-              <h2 className="text-xl font-semibold">{s.title}</h2>
-              <p className="mt-3 text-gray-600">{s.desc}</p>
-
-              <ul className="mt-6 space-y-2 text-sm text-gray-700">
-                {s.bullets.map((b) => (
-                  <li key={b} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-gray-900" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* HOW WE WORK */}
-      <Section className="pb-14">
-        <div className="rounded-3xl border border-gray-200 bg-gray-50 p-10 md:p-12">
-          <h2 className="text-3xl font-bold">How we deliver</h2>
-          <p className="mt-4 max-w-3xl text-gray-600">
-            Our focus is simple: map the workflow, build the right structure, protect data integrity,
-            and deliver a tool your team will actually adopt.
-          </p>
-
-          <div className="mt-8 grid gap-6 md:grid-cols-4">
-            {[
-              { step: "01", title: "Discovery", desc: "We map your workflow, roles, approvals, and reporting needs." },
-              { step: "02", title: "Build", desc: "We configure and build a solution around how work happens on site." },
-              { step: "03", title: "Pilot", desc: "We run a pilot with real users, gather feedback, and refine quickly." },
-              { step: "04", title: "Rollout", desc: "We scale across teams with support, training, and reporting outputs." },
-            ].map((x) => (
-              <div key={x.step} className="rounded-2xl border border-gray-200 bg-white p-6">
-                <div className="text-xs font-semibold tracking-wide text-gray-500">
-                  STEP {x.step}
-                </div>
-                <div className="mt-2 font-semibold text-gray-900">{x.title}</div>
-                <div className="mt-2 text-sm text-gray-600">{x.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <Section className="pb-24">
-        <div className="rounded-3xl border border-gray-200 bg-white p-10 md:p-12 shadow-sm">
-          <h2 className="text-3xl font-bold">
-            Tell us your workflow — we’ll build the solution.
-          </h2>
-
-          <p className="mt-4 max-w-2xl text-gray-600">
-            Book a demo or send a brief and we’ll recommend a practical path — a module rollout,
-            a suite deployment, or a custom build.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="/book-demo"
-              className="rounded-xl bg-gray-900 px-6 py-3 text-white font-medium hover:bg-gray-800 transition"
-            >
-              Book a demo
-            </a>
-            <a
-              href="/contact"
-              className="rounded-xl border border-gray-300 px-6 py-3 font-medium hover:border-gray-400 transition"
-            >
-              Contact us
-            </a>
-          </div>
-        </div>
-      </Section>
-    </main>
-  );
+  return <main className="bg-white text-gray-900">
+    <Section className="pt-16 pb-14">
+      <p className="text-sm font-semibold tracking-wide text-gray-500">VALERON SOLUTIONS</p>
+      <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight tracking-tight sm:text-5xl">Work management solutions built for real operational workflows.</h1>
+      <p className="mt-6 max-w-3xl text-xl leading-8 text-gray-600">Replace disconnected spreadsheets, email chains and manual trackers with structured systems that improve ownership, visibility and data integrity. Start with a focused Valeron product or build around a workflow unique to your operation.</p>
+      <div className="mt-10 flex flex-wrap gap-4"><Link href="/book-demo" className="rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-gray-800">Book a demo</Link><Link href="/solutions/custom-mining-software" className="rounded-xl border border-gray-300 px-6 py-3 font-medium transition hover:border-gray-400">Discuss a custom workflow</Link></div>
+    </Section>
+    <Section className="pb-16">
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{solutions.map((solution) => <article key={solution.href} className="flex flex-col rounded-3xl border border-gray-200 bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"><div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gray-900 text-white"><SolutionIcon name={solution.icon} /></div><p className="mt-6 text-xs font-semibold tracking-widest text-gray-500">{solution.product.toUpperCase()}</p><h2 className="mt-2 text-xl font-semibold">{solution.title}</h2><p className="mt-3 flex-1 leading-7 text-gray-600">{solution.description}</p><Link href={solution.href} className="mt-6 inline-flex font-medium text-gray-900 hover:underline" aria-label={`Explore ${solution.title}`}>Explore solution →</Link></article>)}</div>
+    </Section>
+    <Section className="pb-16"><div className="rounded-3xl border border-gray-200 bg-gray-50 p-9 md:p-12"><h2 className="text-3xl font-bold">How we deliver</h2><p className="mt-4 max-w-3xl text-gray-600">We map the workflow, build the right structure, protect data integrity and deliver a tool your team can use confidently.</p><div className="mt-8 grid gap-5 md:grid-cols-4">{[{ n: "01", t: "Discovery", d: "Map workflows, roles, approvals and reporting." }, { n: "02", t: "Build", d: "Configure the solution around site operations." }, { n: "03", t: "Pilot", d: "Test with real users and refine the process." }, { n: "04", t: "Rollout", d: "Deploy with onboarding and ongoing support." }].map((step) => <div key={step.n} className="rounded-2xl border border-gray-200 bg-white p-6"><p className="text-xs font-semibold tracking-widest text-gray-500">STEP {step.n}</p><h3 className="mt-2 font-semibold">{step.t}</h3><p className="mt-2 text-sm leading-6 text-gray-600">{step.d}</p></div>)}</div></div></Section>
+    <Section className="pb-24"><div className="rounded-3xl border border-gray-200 p-9 shadow-sm md:p-12"><h2 className="text-3xl font-bold">Find the right starting point for your operation.</h2><p className="mt-4 max-w-2xl text-gray-600">Talk through the workflow, data and visibility gaps with Valeron. We’ll recommend a practical product, module or custom-build path.</p><Link href="/book-demo" className="mt-8 inline-block rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-gray-800">Book a demo</Link></div></Section>
+  </main>;
 }
