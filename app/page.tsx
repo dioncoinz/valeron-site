@@ -1,152 +1,27 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Section from "@/components/Section";
-import FeatureCard from "@/components/FeatureCard";
-import ExampleCard from "@/components/ExampleCard";
-import CTA from "@/components/CTA";
+import ButtonLink from "@/components/ButtonLink";
+import ProductScreenshot from "@/components/ProductScreenshot";
+import ProductCTA from "@/components/ProductCTA";
+import SectionHeading from "@/components/SectionHeading";
+import ArrowUpRight from "@/components/ArrowUpRight";
+import { enterpriseCapabilities, focusedSolutions, industries, shunterModules, shunterScreenshots } from "@/lib/site-data";
 
-export const metadata: Metadata = {
-  title: "Custom Business Solutions for Work Management",
-  description:
-    "Valeron designs and builds custom work management software for operations, maintenance, and shutdown teams.",
-};
+export const metadata: Metadata = { title: "Operational Software Built Around Real Work", description: "Valeron builds operational software connecting assets, people and work across mining, maintenance and complex industrial environments in Australia.", alternates: { canonical: "/" } };
 
 export default function HomePage() {
-  return (
-    <main className="bg-white text-gray-900">
-      {/* HERO */}
-      <Section className="pt-16 pb-14">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="max-w-xl">
-            <p className="text-sm font-semibold tracking-wide text-gray-500">
-              VALERON • CUSTOM BUSINESS SOLUTIONS
-            </p>
-
-            <h1 className="mt-4 text-5xl font-bold tracking-tight leading-tight">
-              Custom work management software, built to match how your operation runs.
-            </h1>
-
-            <p className="mt-6 text-xl text-gray-600">
-              We design and build modern web apps for approvals, compliance, planning visibility,
-              readiness tracking, and reporting — tailored to your workflows, teams, and systems.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="/book-demo"
-                className="rounded-xl bg-gray-900 px-6 py-3 text-white font-medium hover:bg-gray-800 transition"
-              >
-                Book a demo
-              </a>
-
-              <a
-                href="/shutdown-suite"
-                className="rounded-xl border border-gray-300 px-6 py-3 font-medium hover:border-gray-400 transition"
-              >
-                Explore Shutdown Suite
-              </a>
-            </div>
-
-            <div className="mt-10 grid grid-cols-2 gap-6 sm:grid-cols-3">
-              <div>
-                <div className="text-2xl font-bold">Faster</div>
-                <div className="mt-1 text-sm text-gray-600">approvals & decisions</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold">Cleaner</div>
-                <div className="mt-1 text-sm text-gray-600">reporting-ready data</div>
-              </div>
-              <div className="col-span-2 sm:col-span-1">
-                <div className="text-2xl font-bold">Configurable</div>
-                <div className="mt-1 text-sm text-gray-600">per site & process</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right-side visual block (placeholder) */}
-          <div className="rounded-3xl border border-gray-200 bg-gradient-to-b from-gray-50 to-white p-8 shadow-sm">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6">
-              <div className="text-sm font-semibold text-gray-900">What we build</div>
-              <ul className="mt-4 space-y-3 text-sm text-gray-700">
-                {[
-                  "Timesheets & labour capture",
-                  "Break-in work requests & approvals",
-                  "Readiness dashboards & KPIs",
-                  "Compliance workflows & audit trail",
-                  "Exports to Excel, reporting packs",
-                ].map((x) => (
-                  <li key={x} className="flex gap-3">
-                    <span className="mt-2 h-2 w-2 rounded-full bg-gray-900" />
-                    <span>{x}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-6 rounded-xl bg-gray-50 border border-gray-200 p-4">
-                <div className="text-xs font-semibold tracking-wide text-gray-500">
-                  FLAGSHIP
-                </div>
-                <div className="mt-1 font-semibold text-gray-900">Shutdown Suite</div>
-                <div className="mt-1 text-sm text-gray-600">
-                  Modular tools to plan, control, and track shutdown readiness end-to-end.
-                </div>
-                <a
-                  href="/shutdown-suite"
-                  className="mt-4 inline-flex text-sm font-medium text-gray-900 hover:underline"
-                >
-                  Explore Shutdown Suite →
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* PILLARS */}
-      <Section className="pb-14">
-        <div className="grid gap-6 md:grid-cols-3">
-          <FeatureCard
-            title="Work Management Apps"
-            description="Timesheets, break-in work, approvals, job tracking, readiness dashboards, and operational reporting."
-          />
-          <FeatureCard
-            title="Shutdown Suite"
-            description="A flagship modular suite designed to plan, control, and track shutdown readiness from initiation to execution."
-          />
-          <FeatureCard
-            title="Custom Builds"
-            description="No off-the-shelf constraints. If you can describe the workflow, we can design and build the solution."
-          />
-        </div>
-      </Section>
-
-      {/* PROOF */}
-      <Section className="pb-14">
-        <h2 className="text-3xl font-bold">Built and tested in real operations</h2>
-        <p className="mt-4 max-w-2xl text-gray-600">
-          These tools aren’t theory — they’re designed for real maintenance and operations teams
-          to reduce admin, improve visibility, and speed up decisions.
-        </p>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <ExampleCard
-            title="Timesheet App"
-            description="Fast entry, clean exports, and reporting-ready labour data."
-          />
-          <ExampleCard
-            title="Break-in Work App"
-            description="Structured requests, multi-level approvals, and a full audit trail."
-          />
-          <ExampleCard
-            title="Readiness Dashboard"
-            description="Live planning status, at-risk visibility, and KPI tracking."
-          />
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <Section className="pb-24">
-        <CTA />
-      </Section>
-    </main>
-  );
+  return <main>
+    <Section className="pb-20 pt-14 sm:pt-20 lg:pb-28 lg:pt-24"><div className="grid items-end gap-12 lg:grid-cols-[1.08fr_0.92fr]">
+      <div><p className="eyebrow text-[#b94d21]">AUSTRALIAN OPERATIONAL SOFTWARE</p><h1 className="mt-5 max-w-4xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl lg:text-[5.35rem]">Operational software, built around the way work actually happens.</h1><p className="mt-7 max-w-2xl text-lg leading-8 text-[#5b5952] sm:text-xl">Valeron builds modern software that connects assets, people and work across complex industrial environments.</p><div className="mt-9 flex flex-wrap gap-3"><ButtonLink href="/shunter">Explore Shunter</ButtonLink><ButtonLink href="/book-demo" secondary>Book a demo</ButtonLink></div></div>
+      <div className="lg:pb-2"><div className="border-l-2 border-[#dd622d] pl-6"><p className="font-mono text-xs uppercase tracking-[0.16em] text-[#747168]">From the field to a clear operational view</p><div className="mt-6 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">{["Assets and maintenance", "Workforce and compliance", "Scheduling and execution"].map((item, index) => <div key={item} className="flex items-center gap-4 border-b border-black/10 pb-3"><span className="font-mono text-xs text-[#b94d21]">0{index + 1}</span><span className="font-medium">{item}</span></div>)}</div></div></div>
+    </div></Section>
+    <section className="bg-[#171714] py-20 text-white lg:py-28"><Section><div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:items-center"><div><p className="eyebrow text-[#f1a27d]">SHUNTER / FLAGSHIP PLATFORM</p><h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">One connected platform for operational work.</h2><p className="mt-6 text-lg leading-8 text-white/65">Shunter brings the information behind assets, people, maintenance, scheduling, compliance, documents and inventory into a cohesive operational system.</p><div className="mt-8"><ButtonLink href="/shunter">See what Shunter manages</ButtonLink></div></div><ProductScreenshot screenshot={shunterScreenshots[0]} priority /></div></Section></section>
+    <Section className="py-20 lg:py-28"><SectionHeading eyebrow="CONNECTED CAPABILITY" title="The work is connected. The software should be too." description="Instead of passing information between isolated systems and manual trackers, Shunter creates shared context across the operational areas that depend on each other." /><div className="mt-12 grid gap-px overflow-hidden rounded-[1.7rem] border border-[#dcd5c8] bg-[#dcd5c8] md:grid-cols-2 lg:grid-cols-5">{shunterModules.map((module) => <article key={module.title} className="bg-[#f7f3eb] p-6 lg:min-h-72"><p className="font-mono text-[10px] tracking-[0.15em] text-[#b94d21]">{module.eyebrow}</p><h3 className="mt-5 text-xl font-semibold tracking-tight">{module.eyebrow.split(" / ")[1]}</h3><p className="mt-3 text-sm leading-6 text-[#66635b]">{module.description}</p></article>)}</div></Section>
+    <section className="border-y border-black/10 bg-white/45 py-20 lg:py-28"><Section><SectionHeading eyebrow="FOCUSED SOLUTIONS" title="Purpose-built software for specific operational problems." description="Valeron’s focused products remain available where a targeted workflow is the right answer. Shutdown Suite reflects the shutdown experience that shaped the broader platform direction." /><div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{focusedSolutions.slice(0, 3).map((solution) => <Link key={solution.name} href={solution.href} className="group surface-card p-7 transition hover:-translate-y-1 hover:border-[#dd622d]/50"><p className="eyebrow text-[#747168]">{solution.category}</p><h3 className="mt-4 text-2xl font-semibold">{solution.name}</h3><p className="mt-3 leading-7 text-[#66635b]">{solution.description}</p><span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#b94d21]">Explore solution <ArrowUpRight /></span></Link>)}</div><Link href="/solutions" className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[#b94d21] hover:underline">View all focused solutions <ArrowUpRight /></Link></Section></section>
+    <Section className="py-20 lg:py-28"><div className="grid gap-12 lg:grid-cols-2"><SectionHeading eyebrow="OPERATIONAL CONTEXT" title="Built for environments where complexity is real." description="Valeron is particularly suited to organisations managing connected assets, people, compliance and operational work." /><div className="grid gap-3 sm:grid-cols-2">{industries.slice(0, 4).map((industry) => <div key={industry.name} className="border-b border-black/15 py-4"><h3 className="font-semibold">{industry.name}</h3><p className="mt-2 text-sm leading-6 text-[#66635b]">{industry.description}</p></div>)}</div></div><div className="mt-10"><ButtonLink href="/industries" secondary>Explore industries</ButtonLink></div></Section>
+    <section className="bg-[#dd622d] py-20 text-white lg:py-24"><Section><div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]"><div><p className="eyebrow text-white/65">WHY VALERON</p><h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em]">We understand the work before we design the software.</h2></div><div className="grid gap-6 sm:grid-cols-2"><p className="text-lg leading-8 text-white/85">Valeron grew from genuine experience in maintenance, shutdowns, planning, field execution, workforce coordination and operational reporting.</p><p className="text-lg leading-8 text-white/85">That context shapes practical workflows, clear information and software made for the people who run the work—not a generic process imposed from the outside.</p></div></div></Section></section>
+    <Section className="py-20 lg:py-28"><SectionHeading eyebrow="ENTERPRISE DIRECTION" title="Serious operational software, designed to fit the wider environment." description="Shunter is designed as an operational layer alongside enterprise systems—not a claim to replace every platform already in place." /><div className="mt-12 grid gap-px overflow-hidden rounded-[1.7rem] border border-[#dcd5c8] bg-[#dcd5c8] md:grid-cols-2 lg:grid-cols-3">{enterpriseCapabilities.map(([title, description]) => <div key={title} className="bg-[#f7f3eb] p-7"><h3 className="font-semibold">{title}</h3><p className="mt-3 text-sm leading-6 text-[#66635b]">{description}</p></div>)}</div></Section>
+    <ProductCTA />
+  </main>;
 }

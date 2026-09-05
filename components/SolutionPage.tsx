@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "@/components/Section";
 import SolutionIcon, { type SolutionIconName } from "@/components/SolutionIcon";
+import ArrowUpRight from "@/components/ArrowUpRight";
 
 export type ContentSection = {
   title: string;
@@ -63,10 +64,10 @@ function DashboardPanel({ section, product }: { section: ContentSection; product
         {section.intro && <p className="mt-4 leading-7 text-gray-600">{section.intro}</p>}
         {section.note && <p className="mt-4 text-sm leading-6 text-gray-600">{section.note}</p>}
       </div>
-      <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm" role="img" aria-label={`${product} dashboard preview showing key operational information`}>
+      <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm" aria-label={`${product} operational capability summary`}>
         <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-          <span className="text-sm font-semibold">Management overview</span>
-          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600">Live view</span>
+          <span className="text-sm font-semibold">Operational capability</span>
+          <span className="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-600">Configured per operation</span>
         </div>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           {section.items?.map((item, index) => (
@@ -78,7 +79,7 @@ function DashboardPanel({ section, product }: { section: ContentSection; product
             </div>
           ))}
         </div>
-        <p className="mt-4 text-xs text-gray-500">Illustrative product preview — configured data replaces these labels.</p>
+        <p className="mt-4 text-xs text-gray-500">Capability summary—not a representation of the product interface.</p>
       </div>
     </div>
   );
@@ -87,7 +88,7 @@ function DashboardPanel({ section, product }: { section: ContentSection; product
 export default function SolutionPage({ data }: { data: SolutionData }) {
   const dashboardIndex = Math.min(2, data.sections.length - 1);
   return (
-    <main className="bg-white text-gray-900">
+    <main className="text-gray-900">
       <Section className="pt-10 pb-14 md:pt-14">
         <nav aria-label="Breadcrumb" className="text-sm text-gray-500">
           <ol className="flex flex-wrap items-center gap-2"><li><Link href="/" className="hover:text-gray-900">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/solutions" className="hover:text-gray-900">Solutions</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-gray-700">{labels[data.slug]}</li></ol>
@@ -117,7 +118,7 @@ export default function SolutionPage({ data }: { data: SolutionData }) {
         <Section key={section.title} className={`pb-16 ${data.variant === 2 && index % 2 ? "lg:pl-24" : data.variant === 3 && index % 2 === 0 ? "lg:pr-24" : ""}`}><CapabilityGrid section={section} /></Section>
       ))}
 
-      <Section className="pb-16"><div className="border-t border-gray-200 pt-10"><h2 className="text-2xl font-bold">Related Valeron solutions</h2><div className="mt-6 grid gap-4 md:grid-cols-3">{data.related.map((slug) => <Link key={slug} href={`/solutions/${slug}`} className="group rounded-2xl border border-gray-200 p-5 transition hover:border-gray-400 hover:shadow-sm"><span className="font-semibold">{labels[slug]}</span><span className="mt-2 block text-sm text-gray-600 group-hover:text-gray-900">Explore this solution →</span></Link>)}</div></div></Section>
+      <Section className="pb-16"><div className="border-t border-gray-200 pt-10"><h2 className="text-2xl font-bold">Related Valeron solutions</h2><div className="mt-6 grid gap-4 md:grid-cols-3">{data.related.map((slug) => <Link key={slug} href={`/solutions/${slug}`} className="group rounded-2xl border border-gray-200 p-5 transition hover:border-gray-400 hover:shadow-sm"><span className="font-semibold">{labels[slug]}</span><span className="mt-2 inline-flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-900">Explore this solution <ArrowUpRight /></span></Link>)}</div></div></Section>
 
       <Section className="pb-24"><div className="rounded-3xl border border-gray-200 bg-gray-50 p-9 md:p-12"><h2 className="text-3xl font-bold tracking-tight">{data.finalHeading}</h2><p className="mt-4 max-w-2xl text-gray-600">Talk through your current process with Valeron and see how a practical, configured workflow could support your team.</p><Link href="/book-demo" className="mt-8 inline-block rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-gray-800">{data.finalButton}</Link></div></Section>
     </main>

@@ -1,48 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { navigation } from "@/lib/site-data";
 
 export default function Footer() {
-  return (
-    <footer className="border-t border-gray-200 bg-white">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-
-          {/* LOGO */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/brand/valeron-logo.svg" // change to .png if needed
-              alt="Valeron"
-              width={220}
-              height={60}
-              className="h-24 w-auto"
-            />
-          </Link>
-
-          {/* FOOTER NAV */}
-          <nav className="flex flex-wrap gap-6 text-sm font-medium text-gray-600">
-            <Link href="/solutions" className="hover:text-gray-900 transition">
-              Solutions
-            </Link>
-            <Link href="/shutdown-suite" className="hover:text-gray-900 transition">
-              Shutdown Suite
-            </Link>
-            <Link href="/examples" className="hover:text-gray-900 transition">
-              Examples
-            </Link>
-            <Link href="/about" className="hover:text-gray-900 transition">
-              About
-            </Link>
-            <Link href="/contact" className="hover:text-gray-900 transition">
-              Contact
-            </Link>
-          </nav>
-        </div>
-
-        {/* COPYRIGHT */}
-        <div className="mt-10 text-xs text-gray-500">
-          © {new Date().getFullYear()} Valeron Pty Ltd -All rights reserved.
-        </div>
-      </div>
-    </footer>
-  );
+  return <footer className="border-t border-black/10 bg-[#eee8dc]"><div className="mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-10 lg:py-16"><div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr]">
+    <div><Link href="/" aria-label="Valeron home"><Image src="/brand/valeron-logo.svg" alt="Valeron" width={800} height={300} className="h-20 w-auto mix-blend-multiply" /></Link><p className="mt-3 max-w-sm text-sm leading-6 text-[#66635b]">Australian operational software for complex industrial environments.</p></div>
+    <div><p className="eyebrow text-[#747168]">EXPLORE</p><nav className="mt-4 grid gap-2 text-sm">{navigation.map((item) => <Link key={item.href} href={item.href} className="hover:text-[#b94d21]">{item.label}</Link>)}<Link href="/custom-solutions" className="hover:text-[#b94d21]">Custom solutions</Link></nav></div>
+    <div><p className="eyebrow text-[#747168]">START A CONVERSATION</p><div className="mt-4 grid gap-2 text-sm"><Link href="/book-demo" className="hover:text-[#b94d21]">Book a demo</Link><Link href="/contact" className="hover:text-[#b94d21]">Contact</Link><a href="mailto:solutions@valeron.com.au" className="hover:text-[#b94d21]">solutions@valeron.com.au</a></div></div>
+  </div><div className="mt-12 flex flex-col gap-2 border-t border-black/10 pt-6 text-xs text-[#747168] sm:flex-row sm:justify-between"><p>© {new Date().getFullYear()} Valeron Pty Ltd. All rights reserved.</p><p>Built in Australia for operational work.</p></div></div></footer>;
 }

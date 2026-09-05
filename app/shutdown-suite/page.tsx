@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Shutdown Suite",
   description:
     "A configurable suite of work management tools to plan, control, and track shutdown readiness with real-time visibility and reporting.",
+  alternates: { canonical: "/shutdown-suite" },
 };
 
 const modules = [
@@ -42,11 +43,11 @@ const modules = [
 
 export default function ShutdownSuitePage() {
   return (
-    <main className="bg-white text-gray-900">
+    <main className="text-gray-900">
       {/* HERO */}
       <Section className="pt-16 pb-12">
         <p className="text-sm font-semibold tracking-wide text-gray-500">
-          VALERON • FLAGSHIP SUITE
+          VALERON • FOCUSED SOLUTION
         </p>
 
         <h1 className="mt-4 text-5xl font-bold tracking-tight leading-tight">

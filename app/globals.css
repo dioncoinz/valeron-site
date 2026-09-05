@@ -2,10 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
-html, body { height: 100%; }
-
-body {
-  background: #ffffff;
-  color: #111827;
+:root { color-scheme: light; --paper: #f7f3eb; --ink: #171714; --orange: #dd622d; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); }
+::selection { background: #dd622d; color: #fff; }
+a, button, summary, input, textarea { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+@layer components {
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.18em]; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#dd622d] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#c75225]; }
+  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-full border border-[#9a958a] px-5 py-3 text-sm font-semibold transition hover:border-[#dd622d]; }
+  .surface-card { @apply rounded-[1.6rem] border border-[#dcd5c8] bg-white/65; }
+  .screenshot-shell { @apply overflow-hidden border border-black/10 bg-[#f7f3eb] shadow-[0_24px_70px_-35px_rgba(23,23,20,0.4)] transition duration-500 group-hover:-translate-y-1; }
 }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }

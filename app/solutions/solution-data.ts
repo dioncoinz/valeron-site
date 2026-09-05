@@ -86,7 +86,7 @@ export const solutions: Record<string, SolutionData> = {
     slug: "custom-mining-software", product: "VALERON CUSTOM BUILDS", icon: "custom", variant: 3,
     h1: "Custom software built around how your operation actually works.",
     introduction: "Valeron designs and builds practical work management applications for mining, maintenance and project teams. We take processes currently managed through spreadsheets, emails and manual trackers and turn them into structured, user-friendly systems with clear ownership and reliable data.",
-    secondary: { label: "View practical examples", href: "/examples" },
+    secondary: { label: "Explore custom solutions", href: "/custom-solutions" },
     problemTitle: "Your operation shouldn’t have to fit around unsuitable software.",
     problem: "Broad off-the-shelf systems rarely match each site’s terminology, approvals or reporting requirements. Teams compensate with additional spreadsheets, duplicate entry and disconnected processes that weaken visibility and data integrity.",
     sections: [
