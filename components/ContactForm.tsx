@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import ArrowUpRight from "@/components/ArrowUpRight";
+import { trackEnquiry } from "@/lib/analytics";
 
 export default function ContactForm({ submitLabel = "Send enquiry" }: { submitLabel?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
@@ -9,7 +10,7 @@ export default function ContactForm({ submitLabel = "Send enquiry" }: { submitLa
     event.preventDefault(); setStatus("sending"); setError("");
     const form = event.currentTarget; const formData = new FormData(form);
     const payload = Object.fromEntries(["name", "company", "email", "phone", "message", "website"].map((key) => [key, String(formData.get(key) || "")]));
-    try { const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }); const data = await response.json(); if (!response.ok || !data.ok) { setStatus("error"); setError(data?.error || "Something went wrong. Please try again."); return; } setStatus("sent"); form.reset(); }
+    try { const response = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) }); const data = await response.json(); if (!response.ok || !data.ok) { setStatus("error"); setError(data?.error || "Something went wrong. Please try again."); return; } setStatus("sent"); form.reset(); trackEnquiry(); }
     catch { setStatus("error"); setError("Network error. Please try again."); }
   }
   const inputClass = "mt-2 w-full rounded-xl border border-black/15 bg-white px-4 py-3 text-sm outline-none transition focus:border-[#dd622d]";

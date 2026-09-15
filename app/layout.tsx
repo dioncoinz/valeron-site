@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -20,5 +21,5 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   const organisation = { "@context": "https://schema.org", "@type": "Organization", name: "Valeron Pty Ltd", url: "https://valeron.com.au", logo: "https://valeron.com.au/brand/valeron-logo.png", description: "An Australian operational software company building software for complex operational environments.", areaServed: "AU" };
-  return <html lang="en-AU" className={`${geistSans.variable} ${geistMono.variable}`}><body className="antialiased"><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organisation).replace(/</g, "\\u003c") }} /><Navbar />{children}<Footer /></body></html>;
+  return <html lang="en-AU" className={`${geistSans.variable} ${geistMono.variable}`}><body className="antialiased"><GoogleAnalytics /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organisation).replace(/</g, "\\u003c") }} /><Navbar />{children}<Footer /></body></html>;
 }

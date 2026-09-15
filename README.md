@@ -20,7 +20,13 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Google Analytics
+
+The shared layout loads Google tag `G-SW6LXY29P7` through `components/GoogleAnalytics.tsx` after hydration. Successful contact and demo submissions send `generate_lead` with `form_name` set to `contact_enquiry` or `demo_request`; form contents are not included in this event.
+
+After deployment, use Google's **Test installation** and GA4 Realtime to verify collection. In the web stream's enhanced measurement settings, enable page views on browser history changes to measure Next.js client navigation. Check that each navigation produces one page view, and mark `generate_lead` as a key event to report enquiries as conversions. Live collection and account settings must be verified in Google Analytics.
+
+## Learning resources
 
 To learn more about Next.js, take a look at the following resources:
 
