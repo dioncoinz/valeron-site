@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { defaultOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import Section from "@/components/Section";
 import ButtonLink from "@/components/ButtonLink";
@@ -7,7 +8,7 @@ import SectionHeading from "@/components/SectionHeading";
 import { focusedSolutions } from "@/lib/site-data";
 import ArrowUpRight from "@/components/ArrowUpRight";
 
-export const metadata: Metadata = { title: "Operational Software Solutions", description: "Explore Shunter and focused Valeron software for shutdowns, fleet, mobilisation, labour capture, equipment tracking and complex operational workflows.", alternates: { canonical: "/solutions" } };
+export const metadata: Metadata = { title: "Operational Software Solutions", description: "Explore Shunter and focused Valeron software for shutdowns, fleet, mobilisation, labour capture, equipment tracking and complex operational workflows.", alternates: { canonical: "/solutions" }, openGraph: { ...defaultOpenGraph, url: "/solutions" } };
 
 export default function SolutionsPage() {
   return <main><Section className="pb-16 pt-16 lg:pb-24 lg:pt-24"><p className="eyebrow text-[#b94d21]">VALERON SOLUTIONS</p><h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-6xl">A connected platform when the operation needs one. Focused software when it does not.</h1><p className="mt-7 max-w-3xl text-lg leading-8 text-[#5b5952]">Valeron develops operational software at two levels: Shunter connects work across the operation, while focused products solve specific, well-defined workflow problems.</p></Section>

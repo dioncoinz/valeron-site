@@ -14,7 +14,7 @@ export const solutions: Record<string, SolutionData> = {
     slug: "mining-shutdown-management", product: "VALERON SHUTDOWN SUITE", icon: "shutdown", variant: 1,
     h1: "Control every stage of your shutdown from one connected platform.",
     introduction: "Valeron’s Shutdown Suite provides maintenance and project teams with a single source of truth for planning, controlling and reporting shutdown activity. Replace disconnected spreadsheets, email chains and manually updated trackers with structured workflows that provide real-time visibility across the entire shutdown.",
-    secondary: { label: "Explore the Shutdown Suite", href: "/shutdown-suite" },
+    secondary: { label: "Explore the Shutdown Suite", href: "#capabilities" },
     problemTitle: "Shutdown information shouldn’t be scattered across multiple systems.",
     problem: "Major shutdowns involve hundreds of work orders, competing priorities, multiple departments, vendors and critical deadlines. When information is maintained across separate spreadsheets and emails, teams lose visibility of readiness, ownership and emerging risk. Reporting becomes time-consuming, and decisions may be made using outdated information.",
     sections: [

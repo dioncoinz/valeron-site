@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { defaultOpenGraph } from "@/lib/seo";
 
 const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   applicationName: "Valeron", authors: [{ name: "Valeron Pty Ltd" }], creator: "Valeron",
   keywords: ["operational software Australia", "asset management software", "workforce compliance software", "maintenance management software", "mining operational software", "shutdown management software", "field operations software"],
   alternates: { canonical: "/" }, icons: { icon: "/brand/favicon-32.png", apple: "/brand/favicon-512.png" },
-  openGraph: { type: "website", url: "/", title: "Valeron | Operational Software Australia", description: "Modern operational software connecting assets, people and work.", siteName: "Valeron", locale: "en_AU", images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Valeron — operational software built around real work" }] },
+  openGraph: defaultOpenGraph,
   twitter: { card: "summary_large_image", title: "Valeron | Operational Software Australia", description: "Modern operational software connecting assets, people and work.", images: ["/opengraph-image"] },
 };
 

@@ -68,7 +68,7 @@ export const shunterScreenshots: readonly ScreenshotConfig[] = [
 ] as const;
 
 export const focusedSolutions = [
-  { name: "Shutdown Suite", category: "Shutdown management", description: "Structured tools for readiness, approvals, execution visibility, labour capture and reporting.", href: "/shutdown-suite" },
+  { name: "Shutdown Suite", category: "Shutdown management", description: "Structured tools for readiness, approvals, execution visibility, labour capture and reporting.", href: "/solutions/mining-shutdown-management" },
   { name: "Inspectz", category: "Prestarts and fleet", description: "Digital prestarts, defect actions, compliance records and fleet visibility.", href: "/solutions/digital-prestart-fleet-management" },
   { name: "Requestz", category: "Workforce mobilisation", description: "Workforce requests, vendor nominations, documentation and mobilisation readiness.", href: "/solutions/contractor-mobilisation" },
   { name: "Timesheetz", category: "Labour capture", description: "Structured daily labour capture with clean, enterprise-ready data outputs.", href: "/solutions/mining-timesheet-labour-capture" },

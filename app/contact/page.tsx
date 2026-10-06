@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import { defaultOpenGraph } from "@/lib/seo";
 import Section from "@/components/Section";
 import ContactForm from "@/components/ContactForm";
 import ArrowUpRight from "@/components/ArrowUpRight";
 
-export const metadata: Metadata = { title: "Talk to Valeron", description: "Talk to Valeron about operational software, Shunter, focused products or a workflow unique to your organisation.", alternates: { canonical: "/contact" } };
+export const metadata: Metadata = { title: "Talk to Valeron", description: "Talk to Valeron about operational software, Shunter, focused products or a workflow unique to your organisation.", alternates: { canonical: "/contact" }, openGraph: { ...defaultOpenGraph, url: "/contact" } };
 export default function ContactPage() { return <main><Section className="py-16 lg:py-24"><div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr]"><div><p className="eyebrow text-[#b94d21]">TALK TO VALERON</p><h1 className="mt-5 text-5xl font-semibold leading-[1.02] tracking-[-0.05em] sm:text-6xl">Start with the operational problem.</h1><p className="mt-6 text-lg leading-8 text-[#5b5952]">Whether you are connecting an operation, improving a focused workflow or working around a gap between enterprise systems, we’ll begin with how the work happens today.</p><a href="mailto:solutions@valeron.com.au" className="mt-8 inline-flex items-center gap-2 font-semibold text-[#b94d21] hover:underline">solutions@valeron.com.au <ArrowUpRight /></a></div><div className="surface-card p-7 sm:p-10"><h2 className="text-2xl font-semibold">Send an enquiry</h2><p className="mt-3 text-[#66635b]">Describe the workflow, teams or visibility gap you want to improve.</p><ContactForm /></div></div></Section></main>; }

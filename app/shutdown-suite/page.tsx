@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
+import { defaultOpenGraph } from "@/lib/seo";
 import Section from "@/components/Section";
 
 export const metadata: Metadata = {
   title: "Shutdown Suite",
   description:
     "A configurable suite of work management tools to plan, control, and track shutdown readiness with real-time visibility and reporting.",
-  alternates: { canonical: "/shutdown-suite" },
+  alternates: { canonical: "/solutions/mining-shutdown-management" },
+  openGraph: { ...defaultOpenGraph, url: "/solutions/mining-shutdown-management" },
 };
 
 const modules = [

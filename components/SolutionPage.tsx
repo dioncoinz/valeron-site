@@ -115,7 +115,7 @@ export default function SolutionPage({ data }: { data: SolutionData }) {
       {data.sections.map((section, index) => index === dashboardIndex ? (
         <Section key={section.title} className="pb-16"><DashboardPanel section={section} product={data.product} /></Section>
       ) : (
-        <Section key={section.title} className={`pb-16 ${data.variant === 2 && index % 2 ? "lg:pl-24" : data.variant === 3 && index % 2 === 0 ? "lg:pr-24" : ""}`}><CapabilityGrid section={section} /></Section>
+        <Section key={section.title} id={index === 0 ? "capabilities" : undefined} className={`pb-16 ${data.variant === 2 && index % 2 ? "lg:pl-24" : data.variant === 3 && index % 2 === 0 ? "lg:pr-24" : ""}`}><CapabilityGrid section={section} /></Section>
       ))}
 
       <Section className="pb-16"><div className="border-t border-gray-200 pt-10"><h2 className="text-2xl font-bold">Related Valeron solutions</h2><div className="mt-6 grid gap-4 md:grid-cols-3">{data.related.map((slug) => <Link key={slug} href={`/solutions/${slug}`} className="group rounded-2xl border border-gray-200 p-5 transition hover:border-gray-400 hover:shadow-sm"><span className="font-semibold">{labels[slug]}</span><span className="mt-2 inline-flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-900">Explore this solution <ArrowUpRight /></span></Link>)}</div></div></Section>
