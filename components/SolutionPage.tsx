@@ -27,6 +27,7 @@ export type SolutionData = {
 };
 
 const labels: Record<string, string> = {
+  "mining-workforce-management": "Mining workforce management",
   "mining-shutdown-management": "Mining shutdown management",
   "digital-prestart-fleet-management": "Digital pre-start and fleet management",
   "contractor-mobilisation": "Contractor mobilisation",
@@ -118,6 +119,7 @@ export default function SolutionPage({ data }: { data: SolutionData }) {
         <Section key={section.title} id={index === 0 ? "capabilities" : undefined} className={`pb-16 ${data.variant === 2 && index % 2 ? "lg:pl-24" : data.variant === 3 && index % 2 === 0 ? "lg:pr-24" : ""}`}><CapabilityGrid section={section} /></Section>
       ))}
 
+      {data.slug === "contractor-mobilisation" && <Section className="pb-12"><p className="max-w-3xl leading-7 text-gray-600">Requestz focuses on supplier-facing workforce requests, vendor nominations and mobilisation coordination. For broader personnel records, availability and operational assignments, explore <Link href="/solutions/mining-workforce-management" className="font-semibold text-[#b94d21] underline underline-offset-4">mining workforce management with Shunter</Link>. These are separate Valeron product workflows; any connection is scoped explicitly.</p></Section>}
       <Section className="pb-16"><div className="border-t border-gray-200 pt-10"><h2 className="text-2xl font-bold">Related Valeron solutions</h2><div className="mt-6 grid gap-4 md:grid-cols-3">{data.related.map((slug) => <Link key={slug} href={`/solutions/${slug}`} className="group rounded-2xl border border-gray-200 p-5 transition hover:border-gray-400 hover:shadow-sm"><span className="font-semibold">{labels[slug]}</span><span className="mt-2 inline-flex items-center gap-2 text-sm text-gray-600 group-hover:text-gray-900">Explore this solution <ArrowUpRight /></span></Link>)}</div></div></Section>
 
       <Section className="pb-24"><div className="rounded-3xl border border-gray-200 bg-gray-50 p-9 md:p-12"><h2 className="text-3xl font-bold tracking-tight">{data.finalHeading}</h2><p className="mt-4 max-w-2xl text-gray-600">Talk through your current process with Valeron and see how a practical, configured workflow could support your team.</p><Link href="/book-demo" className="mt-8 inline-block rounded-xl bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-gray-800">{data.finalButton}</Link></div></Section>

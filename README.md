@@ -26,6 +26,29 @@ The shared layout loads Google tag `G-SW6LXY29P7` through `components/GoogleAnal
 
 After deployment, use Google's **Test installation** and GA4 Realtime to verify collection. In the web stream's enhanced measurement settings, enable page views on browser history changes to measure Next.js client navigation. Check that each navigation produces one page view, and mark `generate_lead` as a key event to report enquiries as conversions. Live collection and account settings must be verified in Google Analytics.
 
+## Landing page validation
+
+Run `npm run lint`, `npx tsc --noEmit`, `npm test` and `npm run build`.
+Contact regression tests replace Resend with an in-memory mock; they never deliver email.
+
+For the read-only SEO/HTTP checks, start the production build locally with
+`npm start -- --hostname 127.0.0.1 --port 3100`, then in another PowerShell terminal:
+
+```powershell
+$env:SEO_BASE_URL = "http://127.0.0.1:3100"
+node --test tests/seo-http.test.mjs
+```
+
+Without `SEO_BASE_URL`, the HTTP suite is skipped by `npm test`. It checks the two
+new pages, discovery links, all sitemap canonicals, OpenGraph, structured data,
+internal links, the legacy shutdown redirect and the generated favicon URL.
+Browser checks should cover 1440px, 390px and 320px, keyboard navigation, screenshots
+and the demo interests `mining-workforce-management` and `sap-maintenance-analytics`.
+Intercept `/api/contact` in browser tests: never submit a real enquiry during validation.
+Verify one `generate_lead` event after a successful mock response and none after failure.
+
+See [screenshot provenance and product boundaries](docs/landing-page-evidence.md).
+
 ## Learning resources
 
 To learn more about Next.js, take a look at the following resources:

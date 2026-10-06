@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/lib/site-data";
 import ArrowUpRight from "@/components/ArrowUpRight";
-import { shutdownDemo } from "@/lib/demo-interest";
+import { demoInterests } from "@/lib/demo-interest";
 
 function MenuIcon() {
   return <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-5 w-5"><path d="M3 6h14M3 14h14" stroke="currentColor" strokeWidth="1.4" /></svg>;
@@ -13,7 +13,7 @@ function MenuIcon() {
 
 export default function Navbar() {
   const pathname = usePathname();
-  const demoHref = pathname === shutdownDemo.sourcePath ? shutdownDemo.href : "/book-demo";
+  const demoHref = demoInterests.find((interest) => interest.sourcePath === pathname)?.href ?? "/book-demo";
 
   return <header className="sticky top-0 z-50 border-b border-black/15 bg-[#f7f3eb]/[0.97] backdrop-blur-xl">
     <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">

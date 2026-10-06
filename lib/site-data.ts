@@ -1,5 +1,6 @@
 export const navigation = [
   { label: "Shunter", href: "/shunter", featured: true },
+  { label: "Metricz", href: "/metricz", featured: false },
   { label: "Solutions", href: "/solutions", featured: false },
   { label: "Industries", href: "/industries", featured: false },
   { label: "About", href: "/about", featured: false },
@@ -69,6 +70,8 @@ export const shunterScreenshots: readonly ScreenshotConfig[] = [
 
 export const focusedSolutions = [
   { name: "Mining Shutdown Management", category: "Shunter solution", description: "Planning, readiness, approvals and execution coordination powered by Shunter.", href: "/solutions/mining-shutdown-management" },
+  { name: "Mining Workforce Management", category: "Shunter solution", description: "People, availability, qualifications, mobilisation readiness and workforce assignments.", href: "/solutions/mining-workforce-management" },
+  { name: "Metricz", category: "Maintenance analytics", description: "Upload Excel/CSV exports, investigate material issues and reversals, and trace findings to source evidence.", href: "/metricz" },
   { name: "Inspectz", category: "Prestarts and fleet", description: "Digital prestarts, defect actions, compliance records and fleet visibility.", href: "/solutions/digital-prestart-fleet-management" },
   { name: "Requestz", category: "Workforce mobilisation", description: "Workforce requests, vendor nominations, documentation and mobilisation readiness.", href: "/solutions/contractor-mobilisation" },
   { name: "Timesheetz", category: "Labour capture", description: "Structured daily labour capture with clean, enterprise-ready data outputs.", href: "/solutions/mining-timesheet-labour-capture" },

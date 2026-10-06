@@ -1,7 +1,9 @@
 import { miningShutdown } from "./shutdown-data";
+import { miningWorkforce, workforceMetadata } from "./workforce-data";
 import type { SolutionData } from "@/components/SolutionPage";
 
 export const solutionMetadata: Record<string, { title: string; description: string }> = {
+  "mining-workforce-management": workforceMetadata,
   "mining-shutdown-management": { title: "Mining Shutdown Management Software", description: "Plan and coordinate mining shutdowns with Shunter by Valeron. Connect work scope, readiness, approvals, workforce and execution reporting." },
   "digital-prestart-fleet-management": { title: "Digital Pre-Start & Fleet Management Software | Inspectz", description: "Digitise equipment pre-starts, defect reporting, compliance records, servicing and fleet visibility with Inspectz by Valeron." },
   "contractor-mobilisation": { title: "Contractor Mobilisation and Workforce Request Software | Requestz", description: "Manage workforce requests, vendor nominations, agreed rates, documentation and contractor mobilisation through one structured platform." },
@@ -11,6 +13,7 @@ export const solutionMetadata: Record<string, { title: string; description: stri
 };
 
 export const solutions: Record<string, SolutionData> = {
+  "mining-workforce-management": miningWorkforce,
   "mining-shutdown-management": miningShutdown,
   "digital-prestart-fleet-management": {
     slug: "digital-prestart-fleet-management", product: "INSPECTZ BY VALERON", icon: "fleet", variant: 2,

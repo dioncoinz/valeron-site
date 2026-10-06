@@ -48,7 +48,7 @@ export default function MiningShutdownPage() {
             <div><p className="leading-7 text-[#5b5952]">{section.intro}</p>
               <ul className="mt-5 space-y-3">{section.items?.map((item) => <li key={item} className="flex gap-3 text-sm leading-6"><span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#dd622d]" />{item}</li>)}</ul>
               {section.note && <p className="mt-6 border-l-2 border-[#dd622d]/50 pl-4 text-sm leading-7 text-[#66635b]">{section.note}</p>}
-              {index === 2 && <p className="mt-6 text-sm leading-7 text-[#66635b]">For a focused workflow, explore <Link className={linkClass} href="/solutions/contractor-mobilisation">contractor mobilisation with Requestz</Link>. It is a separate Valeron product; the right fit is discussed with your team.</p>}
+              {index === 2 && <p className="mt-6 text-sm leading-7 text-[#66635b]">For personnel records, availability and assignments, explore <Link className={linkClass} href="/solutions/mining-workforce-management">mining workforce management with Shunter</Link>. For supplier-facing coordination, explore <Link className={linkClass} href="/solutions/contractor-mobilisation">contractor mobilisation with Requestz</Link>. It is a separate Valeron product; the right fit is discussed with your team.</p>}
               {index === 5 && <p className="mt-6 text-sm leading-7 text-[#66635b]">If labour capture is your immediate requirement, see <Link className={linkClass} href="/solutions/mining-timesheet-labour-capture">mining timesheet and labour capture with Timesheetz</Link>, a focused Valeron product.</p>}
             </div>
           </div>

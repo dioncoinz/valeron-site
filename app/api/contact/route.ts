@@ -73,7 +73,7 @@ export async function POST(req: Request) {
       ...(interest ? [`Solution interest: ${interest.label}`, `Source page: ${interest.sourcePath}`] : []),
       ``,
       `Message:`,
-      message || "Shutdown demo requested; no additional details provided.",
+      message || `${interest?.label ?? "Demo"} requested; no additional details provided.`,
       ``,
       `---`,
       `Reply directly to: ${email}`,
