@@ -104,9 +104,9 @@ export default function AboutPage() {
     <section className="border-y border-black/10 bg-white/45 py-20 lg:py-28">
       <Section>
         <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-center">
-          <figure>
+          <figure className="w-1/2 justify-self-center">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[1.7rem] border border-black/10 bg-[#e8e2d6]">
-              {founderPortrait.src ? <Image src={founderPortrait.src} alt={founderPortrait.alt} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-center" /> : <div className="absolute inset-0 grid place-items-center p-8 text-center" role="img" aria-label="Development image slot for Dion Georgel's founder portrait">
+              {founderPortrait.src ? <Image src={founderPortrait.src} alt={founderPortrait.alt} fill sizes="(max-width: 1023px) 50vw, 20vw" className="object-cover object-center" /> : <div className="absolute inset-0 grid place-items-center p-8 text-center" role="img" aria-label="Development image slot for Dion Georgel's founder portrait">
                 <div><div className="mx-auto grid h-14 w-14 place-items-center rounded-full border border-[#dd622d]/35 bg-[#dd622d]/10 font-mono text-xs text-[#b94d21]">DG</div><p className="mt-5 font-semibold">Founder portrait</p><p className="mt-2 text-sm leading-6 text-[#747168]">Development media slot<br />dion-georgel.webp</p></div>
               </div>}
             </div>
@@ -121,7 +121,6 @@ export default function AboutPage() {
               <p>Dion’s perspective was shaped by more than 20 years around complex operational businesses. Approximately 15 of those years were spent across crane and shutdown environments, progressing from operational roles into management and gaining direct exposure to the realities of field execution.</p>
               <p>His experience broadened across mining, oil and gas, labour hire, construction and related industrial settings. It includes around eight years operating at Planning Superintendent level within Tier 1 mining operations, working across maintenance planning, major maintenance, fixed plant, scheduling, work and asset management, contractors, mobilisation, workforce coordination, materials, SAP and operational reporting.</p>
               <p>That breadth matters because operational problems rarely remain inside one department. A planning decision can affect labour, materials, compliance, execution and reporting. Valeron was created with that connected view of the work.</p>
-              <p className="text-base text-[#747168]">Dion is also undertaking postgraduate study toward an MBA, complementing his operational experience with continued development in business leadership.</p>
             </div>
             <div className="mt-9 inline-flex items-end gap-4 border-t border-black/15 pt-6"><span className="text-4xl font-semibold tracking-[-0.04em]">20+</span><span className="pb-1 text-sm leading-5 text-[#66635b]">years of operational<br />and industrial experience</span></div>
           </div>
