@@ -1,7 +1,8 @@
+import { miningShutdown } from "./shutdown-data";
 import type { SolutionData } from "@/components/SolutionPage";
 
 export const solutionMetadata: Record<string, { title: string; description: string }> = {
-  "mining-shutdown-management": { title: "Mining Shutdown Management Software", description: "Plan, control and track mining shutdowns with live readiness dashboards, structured approvals, clear ownership and reporting-ready data." },
+  "mining-shutdown-management": { title: "Mining Shutdown Management Software", description: "Plan and coordinate mining shutdowns with Shunter by Valeron. Connect work scope, readiness, approvals, workforce and execution reporting." },
   "digital-prestart-fleet-management": { title: "Digital Pre-Start & Fleet Management Software | Inspectz", description: "Digitise equipment pre-starts, defect reporting, compliance records, servicing and fleet visibility with Inspectz by Valeron." },
   "contractor-mobilisation": { title: "Contractor Mobilisation and Workforce Request Software | Requestz", description: "Manage workforce requests, vendor nominations, agreed rates, documentation and contractor mobilisation through one structured platform." },
   "mining-timesheet-labour-capture": { title: "Mining Timesheet and Labour Capture Software | Timesheetz", description: "Capture contractor hours against work orders and generate clean, SAP-ready labour data with Timesheetz by Valeron." },
@@ -10,20 +11,7 @@ export const solutionMetadata: Record<string, { title: string; description: stri
 };
 
 export const solutions: Record<string, SolutionData> = {
-  "mining-shutdown-management": {
-    slug: "mining-shutdown-management", product: "VALERON SHUTDOWN SUITE", icon: "shutdown", variant: 1,
-    h1: "Control every stage of your shutdown from one connected platform.",
-    introduction: "Valeron’s Shutdown Suite provides maintenance and project teams with a single source of truth for planning, controlling and reporting shutdown activity. Replace disconnected spreadsheets, email chains and manually updated trackers with structured workflows that provide real-time visibility across the entire shutdown.",
-    secondary: { label: "Explore the Shutdown Suite", href: "#capabilities" },
-    problemTitle: "Shutdown information shouldn’t be scattered across multiple systems.",
-    problem: "Major shutdowns involve hundreds of work orders, competing priorities, multiple departments, vendors and critical deadlines. When information is maintained across separate spreadsheets and emails, teams lose visibility of readiness, ownership and emerging risk. Reporting becomes time-consuming, and decisions may be made using outdated information.",
-    sections: [
-      { title: "Built around the complete shutdown lifecycle", intro: "Use one focused module or implement a connected suite. Each workflow can support the way your team plans, governs, executes and reviews shutdown work.", items: ["Shutdown initiation and milestone tracking", "Scope submission and review", "Planning readiness", "Work-order status monitoring", "Break-in work requests and approvals", "Contractor and workforce requirements", "Materials and documentation readiness", "Execution progress", "Timesheets and labour capture", "Leadership dashboards", "Post-shutdown reporting", "Action and improvement tracking"] },
-      { title: "Control break-in work without losing the audit trail", intro: "Late work can be submitted through a controlled approval workflow that captures scope, priority, resources, risk and the reason for inclusion.", items: ["Structured scope submission", "Priority and risk capture", "Resource requirements", "Role-based approval decisions", "Comments and timestamps", "Complete decision history"], note: "Every decision has a clear owner, supporting comments and timestamps, creating a complete audit trail throughout the shutdown." },
-      { title: "See what needs attention before it affects execution.", intro: "Readiness views bring key planning and delivery information together so leaders and workgroups can focus on exceptions.", items: ["Overall shutdown readiness", "Progress by department or workgroup", "Overdue and at-risk activities", "Work orders completed against target", "Materials and documentation status", "Planning hours remaining", "Outstanding decisions and approvals", "Key shutdown milestones"] },
-      { title: "Configured for your operation", intro: "The Shutdown Suite is shaped around your governance, language and reporting model—not a generic project template.", items: ["Shutdown process", "Planning phases", "Workgroups", "Approval authorities", "Site terminology", "Readiness measures", "Reporting requirements", "Existing systems and data"] },
-    ], finalHeading: "Bring control and visibility to your next shutdown.", finalButton: "Book a shutdown demo", related: ["mining-timesheet-labour-capture", "contractor-mobilisation", "custom-mining-software"]
-  },
+  "mining-shutdown-management": miningShutdown,
   "digital-prestart-fleet-management": {
     slug: "digital-prestart-fleet-management", product: "INSPECTZ BY VALERON", icon: "fleet", variant: 2,
     h1: "One platform for pre-starts, defects, compliance and fleet visibility.",

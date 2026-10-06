@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/lib/site-data";
 import ArrowUpRight from "@/components/ArrowUpRight";
+import { shutdownDemo } from "@/lib/demo-interest";
 
 function MenuIcon() {
   return <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className="h-5 w-5"><path d="M3 6h14M3 14h14" stroke="currentColor" strokeWidth="1.4" /></svg>;
@@ -12,6 +13,7 @@ function MenuIcon() {
 
 export default function Navbar() {
   const pathname = usePathname();
+  const demoHref = pathname === shutdownDemo.sourcePath ? shutdownDemo.href : "/book-demo";
 
   return <header className="sticky top-0 z-50 border-b border-black/15 bg-[#f7f3eb]/[0.97] backdrop-blur-xl">
     <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
@@ -36,7 +38,7 @@ export default function Navbar() {
         </nav>
 
         <div className="ml-5 hidden border-l border-black/15 pl-5 sm:block">
-          <Link href="/book-demo" className="group inline-flex h-11 items-center overflow-hidden rounded-[0.55rem] bg-[#171714] text-sm font-semibold text-white transition-colors hover:bg-[#2a2925]">
+          <Link href={demoHref} className="group inline-flex h-11 items-center overflow-hidden rounded-[0.55rem] bg-[#171714] text-sm font-semibold text-white transition-colors hover:bg-[#2a2925]">
             <span className="px-5">Book a demo</span>
             <span className="grid h-full w-11 place-items-center bg-[#dd622d] transition-colors group-hover:bg-[#c75225]"><ArrowUpRight /></span>
           </Link>
@@ -54,7 +56,7 @@ export default function Navbar() {
                 return <Link key={item.href} href={item.href} aria-current={active ? "page" : undefined} className={`flex items-center justify-between border-b border-black/10 py-4 text-base font-medium transition-colors hover:text-[#b94d21] ${active ? "text-[#b94d21]" : ""}`}><span>{item.label}</span><span className={`font-mono text-[9px] ${active ? "text-[#b94d21]" : "text-[#8a867e]"}`}>0{index + 1}</span></Link>;
               })}
             </nav>
-            <div className="p-5 sm:hidden"><Link href="/book-demo" className="group flex h-12 w-full items-center justify-between bg-[#171714] pl-5 text-sm font-semibold text-white"><span>Book a demo</span><span className="grid h-12 w-12 place-items-center bg-[#dd622d]"><ArrowUpRight /></span></Link></div>
+            <div className="p-5 sm:hidden"><Link href={demoHref} className="group flex h-12 w-full items-center justify-between bg-[#171714] pl-5 text-sm font-semibold text-white"><span>Book a demo</span><span className="grid h-12 w-12 place-items-center bg-[#dd622d]"><ArrowUpRight /></span></Link></div>
           </div>
         </details>
       </div>

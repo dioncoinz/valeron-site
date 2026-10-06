@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { resolveDemoInterest } from "@/lib/demo-interest";
 
 export const runtime = "nodejs";
 
@@ -10,6 +11,7 @@ type Payload = {
   phone?: string;
   message: string;
   website?: string; // honeypot
+  interest?: string;
 };
 
 function isEmail(s: string) {
@@ -30,8 +32,9 @@ export async function POST(req: Request) {
     const email = (body.email || "").trim();
     const phone = (body.phone || "").trim();
     const message = (body.message || "").trim();
+    const interest = resolveDemoInterest(body.interest);
 
-    if (!name || !email || !message) {
+    if (!name || !email || (!message && !interest)) {
       return NextResponse.json(
         { ok: false, error: "Missing required fields." },
         { status: 400 }
@@ -67,9 +70,10 @@ export async function POST(req: Request) {
       `Company: ${company || "-"}`,
       `Email: ${email}`,
       `Phone: ${phone || "-"}`,
+      ...(interest ? [`Solution interest: ${interest.label}`, `Source page: ${interest.sourcePath}`] : []),
       ``,
       `Message:`,
-      message,
+      message || "Shutdown demo requested; no additional details provided.",
       ``,
       `---`,
       `Reply directly to: ${email}`,
