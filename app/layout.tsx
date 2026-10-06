@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: "Australian operational software connecting assets, people and work across complex industrial environments.",
   applicationName: "Valeron", authors: [{ name: "Valeron Pty Ltd" }], creator: "Valeron",
   keywords: ["operational software Australia", "asset management software", "workforce compliance software", "maintenance management software", "mining operational software", "shutdown management software", "field operations software"],
-  alternates: { canonical: "/" }, icons: { icon: "/brand/favicon-32.png", apple: "/brand/favicon-512.png" },
+  alternates: { canonical: "/" },
   openGraph: defaultOpenGraph,
   twitter: { card: "summary_large_image", title: "Valeron | Operational Software Australia", description: "Modern operational software connecting assets, people and work.", images: ["/opengraph-image"] },
 };
